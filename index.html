@@ -29,8 +29,8 @@
             </div>
 
             <div class=" p-4 rounded flex justify-center space-x-6">
-                <button class="border-b-4 border-green-400 text-green-400 font-semibold px-4 py-2">Donation</button>
-                <button class="text-gray-400 font-semibold px-4 py-2">History</button>
+                <button class="border-b-4 border-green-400 text-green-400 font-semibold px-4 py-2" id="donation-btn">Donation</button>
+                <button class="text-gray-400 font-semibold px-4 py-2" id="history-btn">History</button>
             </div>
 
         </nav>
@@ -45,7 +45,7 @@
        
 
         <!-- Donation Cards -->
-        <section class="mt-6 space-y-6">
+        <section class="mt-6 space-y-6 " id="donation-Section">
 
             <!-- <div id="confirmationModal" class="modal" style="display:none;">
                 <div class="modal-content">
@@ -103,14 +103,14 @@
                 <div class="space-y-5 w-1/2">
                         <div class="flex space-x-3 bg-slate-300 w-28 p-1 rounded-lg">
                             <img src="assets/coin.png" alt="">
-                            <span class="text-yellow-500 font-bold text-lg flex space-x-4"><h5>0</h5> <h5>BDT</h5></span>
+                            <span class="text-yellow-500 font-bold text-lg flex space-x-4"><h5 id="balance-feni">0</h5> <h5>BDT</h5></span>
 
                         </div>
                        
                         <h2 class="text-lg font-bold">Donate for Flood Relief in Feni,Bangladesh</h2>
                         <p class="text-gray-500 mt-2">The recent floods in Feni have devastated local communities, leading to severe disruption and loss. Your generous donation will help provide immediate aid, including food, clean water, and medical supplies, to those affected by this calamity. Together, we can offer crucial support and help rebuild lives in the aftermath of this disaster. Every contribution counts towards making a real difference. Please consider donating today to assist those in urgent need.</p>
-                        <input type="text" placeholder="Write Donation Amount" class="border border-gray-300 rounded px-4 py-2 w-full">
-                        <button class="bg-green-400 text-white px-4 py-2 rounded w-full">Donate Now</button>
+                        <input type="text" placeholder="Write Donation Amount" class="border border-gray-300 rounded px-4 py-2 w-full" id="donation-amount-feni">
+                        <button class="bg-green-400 text-white px-4 py-2 rounded w-full" id="donate-for-feni">Donate Now</button>
                     
                 </div>
             </div>
@@ -133,7 +133,7 @@
                         <h2 class="text-lg font-bold">Aid for Injured in the Quota Movement</h2>
                         <p class="text-gray-500 mt-2">The recent Quota movement has resulted in numerous injuries and significant hardship for many individuals. Your support is crucial in providing medical assistance, rehabilitation, and necessary supplies to those affected. By contributing, you help ensure that injured individuals receive the care and support they need during this challenging time. Every donation plays a vital role in alleviating their suffering and aiding in their recovery. Please consider making a donation to support these brave individuals in their time of need. </p>
                     
-                        <input type="text" placeholder="Write Donation Amount" class="border border-gray-300 rounded px-4 py-2 w-full">
+                        <input type="text" placeholder="Write Donation Amount" class="border border-gray-300 rounded px-4 py-2 w-full" id="">
                         <button class="bg-green-400 text-white px-4 py-2 rounded w-full">Donate Now</button>
                     
                 </div>
@@ -143,15 +143,18 @@
 
         <!-- history section -->
 
-        <section>
-            
+        <section class="hidden" id="history-section">
+            <h1>hello</h1>
 
         </section>
 
+        
+
 
     </main>
-    <script src="jsss/utilities.js"></script>
+   
     <script src="jsss/donation.js"></script>
+    <script src="jsss/utilities.js"></script>
    
 
 </body>
