@@ -56,62 +56,180 @@ document.getElementById('donate-noakhali').addEventListener('click', function(ev
 
 
 
-document.getElementById('donate-for-feni').addEventListener('click', function(event) {
+document.getElementById('donate-for-feni').addEventListener('click',function(event){
     event.preventDefault();
+    const forFeni=parseFloat(getTextFieldValueById('my-amount'));
+    const balanceFeni=parseFloat(getTextFieldValueById('balance-feni'))
+    const amoutOfFeni=document.getElementById('donation-amount-feni').value
 
-    const myBalanceForFeni=parseFloat(getTextFieldValueById('my-amount'));
-    const donationAmountFeni=parseFloat(getTextFieldValueById('balance-feni'));
-    const feniBalanceInput=document.getElementById('donation-amount-feni').value;
-
-    if (feniBalanceInput === "" || isNaN(Number(feniBalanceInput))) {
-        alert('Invalid donation amount. Please enter a valid number.');
-        return;
+    if(typeof amoutOfFeni===""|| isNaN(amoutOfFeni)){
+       alert('Invalid donation')
+       return;
     }
+    const NewAmountOfFeni=parseFloat(amoutOfFeni);
 
-    const feniBalance=parseFloat(feniBalanceInput);
-
-    if(typeof donationAmountFeni==='number'){
-        if(feniBalance>0 && myBalanceForFeni>=feniBalance){
-            const updateFeniBalance=donationAmountFeni+feniBalance;
-            document.getElementById('balance-feni').innerText=updateFeniBalance;
-
-            updateNbal=myBalanceForFeni-feniBalance;
-            document.getElementById('my-amount').innerText=updateNbal;
+    if(typeof balanceFeni=='number'){
+        if(NewAmountOfFeni>0 && forFeni>=NewAmountOfFeni){
+            const upDateFeniBal=balanceFeni+NewAmountOfFeni;
+            document.getElementById('balance-feni').innerText=upDateFeniBal;
+            const updateMyBalance=forFeni-NewAmountOfFeni;
+            document.getElementById('my-amount').innerText=updateMyBalance;
             document.getElementById('my_modal_1').showModal();
 
-            if (!isNaN(feniBalance) && feniBalance > 0) {
-                
+            if(!isNaN(NewAmountOfFeni) && NewAmountOfFeni>0){
                 const now = new Date();
-
-    
-               const currentTime = now.toLocaleString();
-
+                const currentTime = now.toLocaleString();
                 const div = document.createElement('div');
-                div.classList.add('w-1/2', 'h-1/2', 'bg-gray-100', 'p-4','aligns-items' ,'mt-2', 'border', 'rounded');
-                div.innerHTML = `<p>${feniBalance} Taka is Donate for Flood Relief in Feni,Bangladesh</p>
-                                  <p>Donation Time: ${currentTime}</p>`;
-            
-                const historySection = document.getElementById('history-section');
-            
-                if (historySection) {  // Ensure the history section exists
-                    historySection.appendChild(div);
-                } else {
-                    console.error('History section not found!');
-                }
-            } else {
-                alert('Invalid donation amount for Noakhali.');
+                div.classList.add('w-1/2', 'h-1/2', 'bg-gray-100', 'p-4', 'align-items', 'mt-2', 'border', 'rounded');
+                div.innerHTML = `
+                <p>${NewAmountOfFeni} Taka has been donated for Flood Relief in Noakhali, Bangladesh.</p>
+                <p>Donation Time: ${currentTime}</p>  <!-- Adding real-time here -->
+               `;
+               const historySection = document.getElementById('history-section');
+               if (historySection) {  
+                   historySection.appendChild(div);
+               } else {
+                   console.error('History section not found!');
+               }
+
             }
-
-
-        }else {
-            alert('Insufficient funds or invalid donation amount.');
+        }else{
+            alert('Insufficient funds or invalid donation amount.')
         }
+        
     }
 
+    
+})
+
+
+// document.getElementById('donate-for-feni').addEventListener('click', function(event) {
+//     event.preventDefault();
+
+//     const myBalanceTwo = parseFloat(getTextFieldValueById('my-amount'));
+//     const donationAmountTwo = parseFloat(getTextFieldValueById('balance-feni'));
+
+//     const noakhaliBalanceInputTwo = document.getElementById('donation-amount-feni').value;
+
+//     if (noakhaliBalanceInputTwo === "" || isNaN(Number(noakhaliBalanceInputTwo))) {
+//         alert('Invalid donation amount. Please enter a valid number.');
+//         return;
+//     }
+
+//     const noakhaliBalanceTwo = parseFloat(noakhaliBalanceInputTwo);
+
+//     if (typeof donationAmountTwo === 'number') {
+//         if (noakhaliBalanceTwo > 0 && myBalanceTwo >= noakhaliBalanceTwo) {
+//             const updateNoakhaliBalanceTwo = donationAmountTwo + noakhaliBalanceTwo;
+//             document.getElementById('balance-feni').innerText = updateNoakhaliBalanceTwo;
+
+//             const updateBalanceTwo = myBalanceTwo - noakhaliBalanceTwo;
+//             document.getElementById('my-amount').innerText = updateBalanceTwo;
+//             document.getElementById('my_modal_1').showModal();
+
+//             // Ensure a valid donation for history
+//             if (!isNaN(noakhaliBalanceTwo) && noakhaliBalanceTwo > 0) {
+//                 // Get the current date and time
+//                 const now = new Date();
+//                 const currentTimeTwo = now.toLocaleString();  // Example: "9/25/2024, 4:30:09 PM"
+
+//                 // Create a new div for donation history
+//                 const div = document.createElement('div');
+//                 div.classList.add('w-1/2', 'h-1/2', 'bg-gray-100', 'p-4', 'align-items', 'mt-2', 'border', 'rounded');
+                
+//                 // Add the donation amount and real-time timestamp
+//                 div.innerHTML = `
+//                     <p>${noakhaliBalanceTwo} Taka has been donated for Flood Relief in Noakhali, Bangladesh.</p>
+//                     <p>Donation Time: ${currentTimeTwo}</p>  <!-- Adding real-time here -->
+//                 `;
+
+//                 // Append the div to the history section
+//                 const historySection = document.getElementById('history-section');
+//                 if (historySection) {  
+//                     historySection.appendChild(div);
+//                 } else {
+//                     console.error('History section not found!');
+//                 }
+//             } else {
+//                 alert('Invalid donation amount for Noakhali.');
+//             }
+//         } else {
+//             alert('Insufficient funds or invalid donation amount.');
+//         }
+//     }
+// });
+
+
+// document.getElementById('donate-for-feni').addEventListener('click', function(event) {
+//     event.preventDefault();
+
+//     const myBalanceForFeni = parseFloat(getTextFieldValueById('my-amount'));
+//     const donationAmountForFeni = parseFloat(getTextFieldValueById('balance-feni'));
+
+//     const feniBalanceInput = document.getElementById('donation-amount-feni').value;
+
+//     // Validate the input
+//     if (feniBalanceInput === "" || isNaN(Number(feniBalanceInput))) {
+//         alert('Invalid donation amount. Please enter a valid number.');
+//         return;
+//     }
+
+//     const feniBalance = parseFloat(feniBalanceInput);
+
+//     // Ensure the donation amount is a valid number
+//     if (typeof donationAmountForFeni === 'number') {
+//         // Check if the user has enough balance to donate
+//         if (feniBalance > 0 && myBalanceForFeni >= feniBalance) {
+//             // Update Feni donation balance
+//             const updatedFeniBalance = donationAmountForFeni + feniBalance;
+//             document.getElementById('balance-feni').innerText = updatedFeniBalance;
+
+//             // Update user's balance
+//             const updatedMyBalance = myBalanceForFeni - feniBalance;
+//             document.getElementById('my-amount').innerText = updatedMyBalance;
+
+//             // Show modal if applicable
+//             const modal = document.getElementById('my_modal_1');
+//             if (modal && typeof modal.showModal === 'function') {
+//                 modal.showModal();
+//             }
+
+//             // Ensure a valid donation for history
+//             if (!isNaN(feniBalance) && feniBalance > 0) {
+//                 // Get the current date and time
+//                 const now = new Date();
+//                 const currentTime = now.toLocaleString();
+
+//                 // Create a new div for donation history
+//                 const div = document.createElement('div');
+//                 div.classList.add('w-1/2', 'h-1/2', 'bg-gray-100', 'p-4', 'align-items', 'mt-2', 'border', 'rounded');
+                
+//                 // Add the donation amount and real-time timestamp
+//                 div.innerHTML = `
+//                     <p>${feniBalance} Taka has been donated for Flood Relief in Feni, Bangladesh.</p>
+//                     <p>Donation Time: ${currentTime}</p>
+//                 `;
+
+//                 // Append the div to the history section
+//                 const historySection = document.getElementById('history-section');
+//                 if (historySection) {  
+//                     historySection.appendChild(div);
+//                 } else {
+//                     console.error('History section not found!');
+//                 }
+//             } else {
+//                 alert('Invalid donation amount for Feni.');
+//             }
+//         } else {
+//             alert('Insufficient funds or invalid donation amount.');
+//         }
+//     }
+// });
 
 
 
-});
+
+
 
 
 
@@ -197,5 +315,3 @@ document.getElementById('history-btn').addEventListener('click',function(){
 document.getElementById('donation-btn').addEventListener('click',function(){
     showSectionByIdA('history-btn')
 })
-
-
