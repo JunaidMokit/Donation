@@ -187,3 +187,15 @@ document.getElementById('donation-btn').addEventListener('click',function(){
 document.getElementById('history-btn').addEventListener('click',function(){
     showSectionById('history-section')
 });
+
+
+
+document.getElementById('history-btn').addEventListener('click',function(){
+    showSectionByIdA('donation-btn')
+})
+
+document.getElementById('donation-btn').addEventListener('click',function(){
+    showSectionByIdA('history-btn')
+})
+
+

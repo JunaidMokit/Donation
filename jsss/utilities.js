@@ -19,3 +19,11 @@ function showSectionById(id){
     document.getElementById(id).classList.remove('hidden');
 
 }
+
+function showSectionByIdA(id){
+    document.getElementById('donation-btn').classList.add('bg-green-400')
+    document.getElementById('history-btn').classList.add('bg-green-400')
+
+    document.getElementById(id).classList.remove('bg-green-400');
+
+}
